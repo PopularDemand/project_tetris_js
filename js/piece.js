@@ -5,55 +5,56 @@ var Piece = TETRIS.Piece = function(params) {
     right: -Math.PI / 2
   }
   this.blocks = []
+  this.type = params
 
 
   this.generateSquare = function(initial) {
-    this.blocks.push (new TETRIS.Block(initial, -2))
-    this.blocks.push (new TETRIS.Block(initial + 1, -2))
-    this.blocks.push (new TETRIS.Block(initial, -1))
-    this.blocks.push (new TETRIS.Block(initial + 1, -1))
+    this.blocks.push (new TETRIS.Block(initial, -2, this.type))
+    this.blocks.push (new TETRIS.Block(initial + 1, -2, this.type))
+    this.blocks.push (new TETRIS.Block(initial, -1, this.type))
+    this.blocks.push (new TETRIS.Block(initial + 1, -1, this.type))
   }
 
   this.generateBar = function(initial) {
-    this.blocks.push (new TETRIS.Block(initial, -1))
-    this.blocks.push (new TETRIS.Block(initial + 1, -1))
-    this.blocks.push (new TETRIS.Block(initial + 2, -1))
-    this.blocks.push (new TETRIS.Block(initial + 3, -1))
+    this.blocks.push (new TETRIS.Block(initial, -1, this.type))
+    this.blocks.push (new TETRIS.Block(initial + 1, -1, this.type))
+    this.blocks.push (new TETRIS.Block(initial + 2, -1, this.type))
+    this.blocks.push (new TETRIS.Block(initial + 3, -1, this.type))
   }
 
   this.generateRightL = function(initial) {
-    this.blocks.push (new TETRIS.Block(initial, -1))
-    this.blocks.push (new TETRIS.Block(initial + 1, -1))
-    this.blocks.push (new TETRIS.Block(initial + 2, -1))
-    this.blocks.push (new TETRIS.Block(initial + 2, -2))
+    this.blocks.push (new TETRIS.Block(initial, -1, this.type))
+    this.blocks.push (new TETRIS.Block(initial + 1, -1, this.type))
+    this.blocks.push (new TETRIS.Block(initial + 2, -1, this.type))
+    this.blocks.push (new TETRIS.Block(initial + 2, -2, this.type))
   }
 
   this.generateLeftL = function(initial) {
-    this.blocks.push (new TETRIS.Block(initial, -1))
-    this.blocks.push (new TETRIS.Block(initial + 1, -1))
-    this.blocks.push (new TETRIS.Block(initial + 2, -1))
-    this.blocks.push (new TETRIS.Block(initial, - 2))
+    this.blocks.push (new TETRIS.Block(initial, -1, this.type))
+    this.blocks.push (new TETRIS.Block(initial + 1, -1, this.type))
+    this.blocks.push (new TETRIS.Block(initial + 2, -1, this.type))
+    this.blocks.push (new TETRIS.Block(initial, - 2, this.type))
   }
 
   this.generateRightS = function(initial) {
-    this.blocks.push (new TETRIS.Block(initial, -1))
-    this.blocks.push (new TETRIS.Block(initial + 1, -1))
-    this.blocks.push (new TETRIS.Block(initial + 1, -2))
-    this.blocks.push (new TETRIS.Block(initial + 2, - 2))
+    this.blocks.push (new TETRIS.Block(initial, -1, this.type))
+    this.blocks.push (new TETRIS.Block(initial + 1, -1, this.type))
+    this.blocks.push (new TETRIS.Block(initial + 1, -2, this.type))
+    this.blocks.push (new TETRIS.Block(initial + 2, - 2, this.type))
   }
 
   this.generateLeftS = function(initial) {
-    this.blocks.push (new TETRIS.Block(initial, -2))
-    this.blocks.push (new TETRIS.Block(initial + 1, -2))
-    this.blocks.push (new TETRIS.Block(initial + 1, -1))
-    this.blocks.push (new TETRIS.Block(initial + 2, - 1))
+    this.blocks.push (new TETRIS.Block(initial, -2, this.type))
+    this.blocks.push (new TETRIS.Block(initial + 1, -2, this.type))
+    this.blocks.push (new TETRIS.Block(initial + 1, -1, this.type))
+    this.blocks.push (new TETRIS.Block(initial + 2, - 1, this.type))
   }
 
   this.generateT = function(initial) {
-    this.blocks.push (new TETRIS.Block(initial, -1))
-    this.blocks.push (new TETRIS.Block(initial + 1, -1))
-    this.blocks.push (new TETRIS.Block(initial + 1, -2))
-    this.blocks.push (new TETRIS.Block(initial + 2, -1))
+    this.blocks.push (new TETRIS.Block(initial, -1, this.type))
+    this.blocks.push (new TETRIS.Block(initial + 1, -1, this.type))
+    this.blocks.push (new TETRIS.Block(initial + 1, -2, this.type))
+    this.blocks.push (new TETRIS.Block(initial + 2, -1, this.type))
   }
 
   this.randCoord = function(max){
@@ -91,9 +92,6 @@ var Piece = TETRIS.Piece = function(params) {
   }
 
   this.generateBlocks(params)
-  this.type = params
-
-
 
 
   this.rotate = function(leftOrRight) {
@@ -159,55 +157,6 @@ var Piece = TETRIS.Piece = function(params) {
         block.x += 1 
       });
     }
-  }
-
-  this.generateSquare = function(initial) {
-    this.blocks.push (new TETRIS.Block(initial, -2))
-    this.blocks.push (new TETRIS.Block(initial + 1, -2))
-    this.blocks.push (new TETRIS.Block(initial, -1))
-    this.blocks.push (new TETRIS.Block(initial + 1, -1))
-  }
-
-  this.generateBar = function(intial) {
-    this.blocks.push (new TETRIS.Block(initial, -1))
-    this.blocks.push (new TETRIS.Block(initial + 1, -1))
-    this.blocks.push (new TETRIS.Block(initial + 2, -1))
-    this.blocks.push (new TETRIS.Block(initial + 3, -1))
-  }
-
-  this.generateRightL = function(initial) {
-    this.blocks.push (new TETRIS.Block(initial, -1))
-    this.blocks.push (new TETRIS.Block(initial + 1, -1))
-    this.blocks.push (new TETRIS.Block(initial + 2, -1))
-    this.blocks.push (new TETRIS.Block(initial + 2, -2))
-  }
-
-  this.generateLeftL = function() {
-    this.blocks.push (new TETRIS.Block(initial, -1))
-    this.blocks.push (new TETRIS.Block(initial + 1, -1))
-    this.blocks.push (new TETRIS.Block(initial + 2, -1))
-    this.blocks.push (new TETRIS.Block(initial, - 2))
-  }
-
-  this.generateRightS = function(initial) {
-    this.blocks.push (new TETRIS.Block(initial, -1))
-    this.blocks.push (new TETRIS.Block(initial + 1, -1))
-    this.blocks.push (new TETRIS.Block(initial + 1, -2))
-    this.blocks.push (new TETRIS.Block(initial + 2, - 2))
-  }
-
-  this.generateLeftS = function(initial) {
-    this.blocks.push (new TETRIS.Block(initial, -2))
-    this.blocks.push (new TETRIS.Block(initial + 1, -2))
-    this.blocks.push (new TETRIS.Block(initial + 1, -1))
-    this.blocks.push (new TETRIS.Block(initial + 2, - 1))
-  }
-
-  this.generateT = function(initial) {
-    this.blocks.push (new TETRIS.Block(initial, -1))
-    this.blocks.push (new TETRIS.Block(initial + 1, -1))
-    this.blocks.push (new TETRIS.Block(initial + 1, -2))
-    this.blocks.push (new TETRIS.Block(initial + 2, -1))
   }
 
 }

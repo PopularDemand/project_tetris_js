@@ -5,6 +5,7 @@ var model = TETRIS.model = {
   board: new TETRIS.Board({top: 0, left: 0, right: 10, bottom: 20}),
 
   justCompleted: undefined,
+  score: 0,
 
   init: function() {
     model.generatePiece();
@@ -142,7 +143,7 @@ var model = TETRIS.model = {
       }
     })
 
-  return atEdge || atStatic;
+    return atEdge || atStatic;
   },
 
   adjacentStatic: function(block, staticBlock, move){
@@ -181,7 +182,7 @@ var model = TETRIS.model = {
         }
       })
     }
-  
+    model.score += completedRows.length;
   }
 
 
