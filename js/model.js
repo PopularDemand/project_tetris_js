@@ -126,7 +126,8 @@ var model = TETRIS.model = {
   moveInvalid: function(move){
     var atEdge = false;
     var atStatic = false;
-    model.board.piece.blocks.forEach(function(block) {
+    for (var j = 0; j < model.board.piece.blocks.length; j++){
+      var block = model.board.piece.blocks[j]
       if(move === 37 && block.x === model.board.edges.left){
         atEdge = true
       }else if(move === 39 && block.x === model.board.edges.right - 1){
@@ -141,14 +142,20 @@ var model = TETRIS.model = {
           break;
         }
       }
-    })
+      if (atStatic) {
+        break;
+      }
+    }
 
     return atEdge || atStatic;
   },
 
   adjacentStatic: function(block, staticBlock, move){
     if(move === 37){
-      return block.x - 1 === staticBlock.x && block.y === staticBlock.y;
+      var directLeft = block.x - 1 === staticBlock.x && block.y === staticBlock.y;
+      // check here first
+      var bottomLeft = block.x - 1 === staticBlock.x && block.y === staticBlock.y - 1;
+      return directLeft || bottomLeft
     }else if(move === 39){
       return block.x + 1 === staticBlock.x && block.y === staticBlock.y;
     }
