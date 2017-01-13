@@ -4,11 +4,10 @@ var TETRIS = TETRIS || {};
 var model = TETRIS.model = {
   board: new TETRIS.Board({top: 0, left: 0, right: 10, bottom: 20}),
 
-  justCompleted: undefined,
-  score: 0,
-
   init: function() {
+    model.justCompleted = undefined;
     model.generatePiece();
+    model.score = 0;
   },
 
   generatePiece: function() {
@@ -190,7 +189,6 @@ var model = TETRIS.model = {
       })
     }
     model.score += completedRows.length;
+    return completedRows.length;
   }
-
-
 };
