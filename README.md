@@ -1,14 +1,17 @@
 # project_tetris_js
 block based gaming
 
-#High level pseudcode
-  ## MVC
-  ## Peice object: has four "segments"
-  ## Segment: has a coordinate pair
-  ## Segment can be "locked" or "unlocked"
-  ## Board is represented by an array of arrays
-  ## when a row is filled delete the row
-  ## add a new row at the top
-  ## re-render the board each tick
-  ## rotations to be done via black magic
+It's _a lot_ like tetris.
 
+Navigate piece left and right with the respective arrow keys.
+
+Rotate piece with the up arrow.
+
+Drop piece all the way to the bottom with the down arrow.
+
+Game descent rate speeds up as you clear the rows. Good luck!
+
+[Play Here](https://falling-blocks.surge.sh)
+
+
+Built with [Francisco Suero](https://github.com/thecog19)

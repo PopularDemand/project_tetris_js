@@ -50,6 +50,6 @@ var controller = TETRIS.controller = {
 }
 
 $(document).ready(function() {
-  console.log('ready')
+  // console.log('ready')
   controller.init();
 })
